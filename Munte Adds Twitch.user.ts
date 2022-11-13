@@ -1,4 +1,3 @@
-"use strict";
 // ==UserScript==
 // @name         Mute Adds Twitch
 // @namespace    http://tampermonkey.net/
@@ -9,19 +8,19 @@
 // @icon         https://www.google.com/s2/favicons?domain=twitch.tv
 // @grant        none
 // ==/UserScript==
-(function () {
+(function(){
     let ButtonStatus = true;
-    let ButtonAudioElement = document.querySelector('[data-a-target="player-mute-unmute-button"]');
-    let VideoAdElement = document.querySelector('[data-a-target="video-ad-countdown"]');
-    setInterval(() => {
+    let ButtonAudioElement = document.querySelector<HTMLButtonElement>('[data-a-target="player-mute-unmute-button"]');
+    let VideoAdElement = document.querySelector<HTMLDivElement>('[data-a-target="video-ad-countdown"]');
+    
+    setInterval(()=>{
         if (VideoAdElement && ButtonStatus) {
             ButtonStatus = false;
-            ButtonAudioElement.click();
+            ButtonAudioElement!.click();
             console.log("Audio off");
-        }
-        else if (!(VideoAdElement && ButtonStatus)) {
+        } else if (!(VideoAdElement && ButtonStatus)) {
             ButtonStatus = true;
-            ButtonAudioElement.click();
+            ButtonAudioElement!.click();
             console.log("Audio on");
         }
     }, 300);
