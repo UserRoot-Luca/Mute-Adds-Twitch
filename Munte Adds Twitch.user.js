@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Mute Adds Twitch
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  ###
 // @author       UserRoot-Luca
 // @match        https://www.twitch.tv/*
@@ -19,7 +19,7 @@
             ButtonAudioElement.click();
             console.log("Audio off");
         }
-        else if (!(VideoAdElement && ButtonStatus)) {
+        else if (!VideoAdElement && !ButtonStatus) {
             ButtonStatus = true;
             ButtonAudioElement.click();
             console.log("Audio on");
