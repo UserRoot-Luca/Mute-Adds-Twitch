@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Mute Adds Twitch
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  ###
 // @author       UserRoot-Luca
 // @match        https://www.twitch.tv/*
@@ -11,9 +11,9 @@
 // ==/UserScript==
 (function () {
     let ButtonStatus = true;
-    let ButtonAudioElement = document.querySelector('[data-a-target="player-mute-unmute-button"]');
-    let VideoAdElement = document.querySelector('[data-a-target="video-ad-countdown"]');
     setInterval(() => {
+        let ButtonAudioElement = document.querySelector('[data-a-target="player-mute-unmute-button"]');
+        let VideoAdElement = document.querySelector('[data-a-target="video-ad-countdown"]');
         if (VideoAdElement && ButtonStatus) {
             ButtonStatus = false;
             ButtonAudioElement.click();
